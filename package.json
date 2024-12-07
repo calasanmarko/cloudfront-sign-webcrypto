@@ -1,0 +1,23 @@
+{
+  "name": "cloudfront-sign-webcrypto",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "license": "MIT",
+  "version": "0.1.6",
+  "scripts": {
+    "build": "tsc",
+    "format:check": "prettier --check src/",
+    "format:fix": "prettier --write src/",
+    "lint:check": "eslint src/",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.17.0",
+    "typescript": "^5.0.0"
+  }
+}
