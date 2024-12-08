@@ -1,10 +1,11 @@
 {
   "name": "cloudfront-sign-webcrypto",
+  "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "type": "module",
   "license": "MIT",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "scripts": {
     "build": "tsc",
     "format:check": "prettier --check src/",
