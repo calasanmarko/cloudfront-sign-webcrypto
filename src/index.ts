@@ -88,7 +88,7 @@ export const createCloudFrontPresignedUrl = async (opts: {
 }): Promise<string> => {
     const policyJson = JSON.stringify(cloudFrontPolicyToJSON(opts.policy));
     const policyData = Buffer.from(policyJson);
-    const policyBase64 = Buffer.from(policyData).toString("base64");
+    const policyBase64 = policyData.toString("base64");
 
     const key = opts.importedKey ?? (await importCloudFrontPrivateKey(opts.key));
     const signature = await signCloudFrontPolicyData({
