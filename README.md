@@ -1,5 +1,5 @@
 # cloudfront-sign-webcrypto
-*Presign CloudFront URLs in JS using Web Crypto*
+*Presign CloudFront URLs in JS using WebCrypto*
 
 ## Performance
 The [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign) package that this package was based on uses `node:crypto` to sign CloudFront pre-signed URLs.
@@ -9,7 +9,7 @@ This package uses WebCrypto to sign URLs for the following reasons:
 2. Bun's implementation of `node:crypto` is significantly slower, making [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign) practically unusable on Bun.
 3. Node and Deno also seem to enjoy significant performance improvements from using WebCrypto, although the gap isn't as massive as Bun's.
 
-This package also allows for a WebCrpyto key to be imported once, and then reused, unlike [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), which re-imports the PEM string passed as an argument on each execution. See **Key caching** below for more details.
+This package also allows for a WebCrypto key to be imported once, and then reused, unlike [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), which re-imports the PEM string passed as an argument on each execution. See **Key caching** below for more details.
 
 ## Benchmarks
 The below benchmarks were run using [hyperfine](https://github.com/sharkdp/hyperfine) on a Macbook M2 Max. The benchmarks run batches of **100 iterations** of presigned URL generation, run either in sequence (C-style `for` loop), or concurrently (using `Promise.all`). You can run these benchmarks yourself by running `bench.sh` inside the `benchmark` workspace package linked to [here](https://github.com/calasanmarko/cloudfront-sign-webcrypto/blob/main/packages/benchmark/bench.sh).
