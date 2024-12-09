@@ -16,7 +16,7 @@ The below benchmarks were run using [hyperfine](https://github.com/sharkdp/hyper
 ### Node.js
 Node has the most straightforward benchmark results. Using this package without parallel execution or key caching incurs a 2x improvement over [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), with further improvements incurred by parallelization and key caching.
 
-| Sign Type                  | Parallel | Cache | Mean (ms) |
+| Package                    | Parallel | Cache | Mean (ms) |
 |----------------------------|----------|-------|-----------|
 | aws-cloudfront-sign        | No       | No    | 240.9     |
 | cloudfront-sign-webcrypto  | No       | No    | 142.6     |
@@ -27,7 +27,7 @@ Node has the most straightforward benchmark results. Using this package without 
 ### Bun
 Bun's implementation of `node:crypto` is incredibly slow, which was actually the motivation for the creation of this package. Moving to WebCrypto incurs a massive performance improvement. Bun, however, appears not to enjoy the parallelization benefits visible in both Node and Deno.
 
-| Sign Type                  | Parallel | Cache | Mean (ms) |
+| Package                    | Parallel | Cache | Mean (ms) |
 |----------------------------|----------|-------|-----------|
 | aws-cloudfront-sign        | No       | No    | 2310.0    |
 | cloudfront-sign-webcrypto  | No       | No    | 100.6     |
@@ -38,7 +38,7 @@ Bun's implementation of `node:crypto` is incredibly slow, which was actually the
 ### Deno
 Deno is similar to Node in regard to the difference between this package and [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), but in Deno's cae we don't see any significant improvement from key caching. Deno seems to be the best performer overall when using parallelization.
 
-| Sign Type                  | Parallel | Cache | Mean (ms) |
+| Package                    | Parallel | Cache | Mean (ms) |
 |----------------------------|----------|-------|-----------|
 | aws-cloudfront-sign        | No       | No    | 269.5     |
 | cloudfront-sign-webcrypto  | No       | No    | 136.2     |
