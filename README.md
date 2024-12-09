@@ -12,7 +12,7 @@ This package uses WebCrypto to sign URLs for the following reasons:
 This package also allows for a WebCrpyto key to be imported once, and then reused, unlike [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), which re-imports the PEM string passed as an argument on each execution. See **Key caching** below for more details.
 
 ## Benchmarks
-The below benchmarks were run using [hyperfine](https://github.com/sharkdp/hyperfine) on a Macbook M2 Max. You can run these benchmarks yourself by running `bench.sh` inside the `benchmark` workspace package linked to [here](https://github.com/calasanmarko/cloudfront-sign-webcrypto/blob/main/packages/benchmark/bench.sh).
+The below benchmarks were run using [hyperfine](https://github.com/sharkdp/hyperfine) on a Macbook M2 Max. The benchmarks run batches of **100 iterations** of presigned URL generation, run either in sequence (C-style `for` loop), or concurrently (using `Promise.all`). You can run these benchmarks yourself by running `bench.sh` inside the `benchmark` workspace package linked to [here](https://github.com/calasanmarko/cloudfront-sign-webcrypto/blob/main/packages/benchmark/bench.sh).
 
 ### Node.js
 Node has the most straightforward benchmark results. Using this package without parallel execution or key caching incurs a 2x improvement over [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), with further improvements incurred by parallelization and key caching.
