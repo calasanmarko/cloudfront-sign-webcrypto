@@ -6,7 +6,8 @@ The [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign) pack
 
 This package uses WebCrypto to sign URLs for the following reasons:
 1. `crypto.subtle.sign` is an async function, allowing large numbers of pre-signed URLs to be generated concurrently.
-2. Bun's implementation of `node:crypto` is significantly slower, making [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign) practically unusable on Bun
+2. Bun's implementation of `node:crypto` is significantly slower, making [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign) practically unusable on Bun.
+3. Node and Deno also seem to enjoy significant performance improvements from using WebCrypto, although the gap isn't as massive as Bun's.
 
 This package also allows for a WebCrpyto key to be imported once, and then reused, unlike [aws-cloudfront-sign](https://github.com/jasonsims/aws-cloudfront-sign), which re-imports the PEM string passed as an argument on each execution. See **Key caching** below for more details.
 
