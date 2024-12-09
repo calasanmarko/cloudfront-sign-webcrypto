@@ -1,0 +1,21 @@
+{
+  "name": "cloudfront-sign-webcrypto-benchmark",
+  "type": "module",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "format:check": "prettier --check src/",
+    "format:fix": "prettier --write src/",
+    "lint:check": "eslint src/",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "aws-cloudfront-sign": "^3.0.2",
+    "cloudfront-sign-webcrypto": "^0.1.8",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.4.2",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.17.0"
+  }
+}

@@ -1,3 +1,5 @@
+import { Buffer } from "node:buffer";
+
 const cloudFrontSigningAlgorithm = "RSASSA-PKCS1-v1_5";
 
 export type CloudFrontPolicy = {

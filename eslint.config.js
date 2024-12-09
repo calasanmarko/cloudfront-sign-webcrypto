@@ -107,8 +107,6 @@ export default [
             "@typescript-eslint/consistent-type-imports": "error",
             "default-param-last": "off",
             "@typescript-eslint/default-param-last": "error",
-            "init-declarations": "off",
-            "@typescript-eslint/init-declarations": "error",
             "@typescript-eslint/method-signature-style": "error",
             "@typescript-eslint/no-confusing-non-null-assertion": "error",
             "@typescript-eslint/no-dynamic-delete": "error",
